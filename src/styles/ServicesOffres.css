@@ -1,0 +1,107 @@
+.services-offres {
+  background: linear-gradient(to bottom right, #f0fdf5, #ffffff);
+  padding: 100px 20px;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  position: relative;
+}
+
+.services-offres h2 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 60px;
+}
+
+.offres-grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.offre-card {
+  flex: 1 1 300px;
+  max-width: 340px;
+  min-height: 420px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 40px 30px;
+  border: 1px solid #d0ecd7;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.offre-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #a4e86f 30%, transparent 70%);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.offre-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+.offre-card h3 {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.offre-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4f4f4f;
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .offre-card {
+    max-width: 100%;
+    min-height: 360px;
+  }
+}
+.offre-icon {
+  background: #ecfef0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.offre-points {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+  color: #2f2f2f;
+  font-size: 0.95rem;
+}
+
+.offre-points li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -2,12 +2,14 @@
 
 .contact-page {
   position: relative;
-  min-height: 100vh;
-  padding: 60px 20px 80px;
+  min-height: 80vh;
+  padding-top: 80px;
+  padding-bottom: 50px;
   font-family: 'Outfit', sans-serif;
   background: linear-gradient(to bottom right, #ffffff, #f0fdf5);
   color: #1B1B1B;
   overflow: hidden;
+  z-index: 0;
 }
 
 .contact-header {
@@ -38,7 +40,6 @@
   z-index: 1;
   position: relative;
 }
-
 
 .form-group {
   display: flex;
@@ -92,34 +93,44 @@ textarea {
   background: linear-gradient(135deg, #b5f390, #c8fcb2);
 }
 
-/* Animations */
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* ✅ Animation entrée */
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInForm {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-.leaf-animation {
+/* ✅ Feuilles animées en PNG */
+.wind-leaves {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 0C7 2 5 4 5 7c0 3 2 5 5 5s5-2 5-5c0-3-2-5-5-7z' fill='%23A4E86F'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  animation: floatLeaves 25s linear infinite;
-  opacity: 0.08;
 }
 
-@keyframes floatLeaves {
-  0% { background-position: 0 100%; }
-  100% { background-position: 100% 0; }
+.leaf {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('/feuille.png'); /* Assure-toi que feuille.png est dans /public */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: leafFloat 25s linear infinite;
+  opacity: 0.25;
+}
+
+.leaf-1 { top: 10%; animation-delay: 0s; left: -80px; }
+.leaf-2 { top: 30%; animation-delay: 5s; left: -100px; }
+.leaf-3 { top: 50%; animation-delay: 10s; left: -120px; }
+.leaf-4 { top: 70%; animation-delay: 15s; left: -140px; }
+
+@keyframes leafFloat {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateX(60vw) rotate(15deg) scale(1.05);
+  }
+  100% {
+    transform: translateX(120vw) rotate(-10deg) scale(0.95);
+  }
 }

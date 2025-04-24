@@ -1,0 +1,164 @@
+.services-processus {
+  padding: 100px 20px;
+  background: linear-gradient(to right, #e3fbee, #f0fff9);
+  font-family: 'DM Sans', sans-serif;
+  color: #1b1b1b;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-processus h2 {
+  font-size: 2.4rem;
+  color: #2e7d32;
+  margin-bottom: 60px;
+}
+
+.processus-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.processus-step {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 18px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.processus-step:hover {
+  transform: translateY(-6px);
+}
+
+/* Petite pastille numéro */
+.processus-step::before {
+  content: attr(data-step);
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background-color: #A4E86F;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.process-img-wrapper {
+  width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.process-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.processus-step:hover img {
+  transform: scale(1.04);
+}
+
+.process-content h3 {
+  font-size: 1.1rem;
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.process-content p {
+  color: #3a3a3a;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .processus-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .processus-steps {
+    grid-template-columns: 1fr;
+  }
+}
+.step-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #A4E86F;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+
+/* Ligne SVG horizontale */
+.process-line {
+  position: absolute;
+  top: 140px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #A4E86F;
+  z-index: 0;
+}
+
+.process-line::before,
+.process-line::after,
+.process-line span {
+  content: '';
+  position: absolute;
+  top: -6px;
+  width: 12px;
+  height: 12px;
+  background-color: #A4E86F;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.process-line::before {
+  left: 0;
+}
+.process-line::after {
+  right: 0;
+}
+.process-line span:nth-child(1) {
+  left: 33.3%;
+}
+.process-line span:nth-child(2) {
+  left: 66.6%;
+}
+
+/* Ajout z-index pour étapes */
+.processus-step {
+  z-index: 2;
+}
