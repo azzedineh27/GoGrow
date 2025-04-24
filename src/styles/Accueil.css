@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.section-linear {
+  background: linear-gradient(to bottom, #e7f7ec, #c7f3d6);
+}

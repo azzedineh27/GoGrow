@@ -1,0 +1,102 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  z-index: 999;
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar-logo {
+  height: 40px;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #2e7d32;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background-color: #4CAF50;
+  left: 0;
+  bottom: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #388e3c;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.lang-button {
+  background: transparent;
+  border: 1px solid #4CAF50;
+  color: #4CAF50;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lang-button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .navbar-center {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .navbar-right {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

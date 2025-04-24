@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+.engagements-section {
+  background-color: #f8fdf9; /* fond très clair légèrement vert */
+  padding: 100px 20px;
+  font-family: 'DM Sans', sans-serif;
+  color: #1b1b1b;
+  text-align: center;
+}
+
+.engagements-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 60px;
+  color: #2e7d32;
+}
+
+.engagements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.engagement-card {
+  background: #ffffff;
+  border-left: 5px solid #A4E86F;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.engagement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.engagement-icon {
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+  color: #A4E86F;
+}
+
+.engagement-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1b1b1b;
+}
+
+.engagement-card-desc {
+  font-size: 1rem;
+  color: #2f2f2f;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .engagements-title {
+    font-size: 2rem;
+  }
+
+  .engagement-icon {
+    font-size: 2.2rem;
+  }
+}
