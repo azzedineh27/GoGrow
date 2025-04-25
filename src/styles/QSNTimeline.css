@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+.qsn-timeline-section {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom right, #f0fff6, #ffffff);
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2.6rem;
+  color: #2e7d32;
+  margin-bottom: 80px;
+}
+
+/* Timeline container */
+.timeline-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(to bottom, #A4E86F, #2e7d32);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.timeline-item:nth-child(even) {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+}
+
+.timeline-card h3 {
+  font-size: 1.2rem;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.timeline-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Decorative leaf icon */
+.leaf-icon {
+  position: absolute;
+  top: 20px;
+  background: #d6f5dc;
+  color: #2e7d32;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 3;
+}
+
+.left .leaf-icon {
+  right: -25px;
+}
+
+.right .leaf-icon {
+  left: -25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .leaf-icon {
+    left: 0 !important;
+    right: auto !important;
+  }
+
+  .timeline-card {
+    margin-left: 40px;
+  }
+}

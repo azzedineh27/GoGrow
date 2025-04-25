@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/navbar.css';
+import { Menu } from 'lucide-react'; // ou une autre icône
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(prev => !prev);
+  };
 
   return (
     <nav className="navbar">
@@ -12,13 +15,11 @@ const Navbar = () => {
         <img src="/logo_idrymen.webp" alt="Logo Idrymen" className="navbar-logo" />
       </div>
 
-      <button className="hamburger" onClick={toggleMenu}>
-        <span className="bar" />
-        <span className="bar" />
-        <span className="bar" />
-      </button>
+      <div className="hamburger" onClick={toggleMenu}>
+        <Menu />
+      </div>
 
-      <div className={`navbar-center ${isOpen ? 'open' : ''}`}>
+      <div className={`navbar-center ${isOpen ? 'active' : ''}`}>
         <a href="/" className="nav-link">Accueil</a>
         <a href="/qsn" className="nav-link">A propos</a>
         <a href="/services" className="nav-link">Services</a>

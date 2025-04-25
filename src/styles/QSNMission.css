@@ -1,0 +1,26 @@
+.qsn-mission {
+    background: linear-gradient(to right, #f0fdf5, #ffffff);
+    padding: 100px 20px;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+  }
+  
+  .qsn-mission h2 {
+    font-size: 2.4rem;
+    color: #2e7d32;
+    margin-bottom: 40px;
+  }
+  
+  .qsn-mission-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.8;
+    background: #ffffff;
+    padding: 40px;
+    border-left: 5px solid #A4E86F;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+  
