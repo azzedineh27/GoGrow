@@ -1,26 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
 .qsn-mission {
-    background: linear-gradient(to right, #f0fdf5, #ffffff);
-    padding: 100px 20px;
-    font-family: 'DM Sans', sans-serif;
-    text-align: center;
+  background: linear-gradient(to right, #f0fdf5, #ffffff);
+  padding: 100px 20px;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.qsn-mission-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* 🌿 Bloc texte à gauche */
+.mission-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 560px;
+  background: #f8fdf5;
+  padding: 50px 40px;
+  border-radius: 24px 10px 24px 10px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  border: 1px dashed #a4e86f;
+  background-image: url('/leaf-pattern.png'); /* facultatif */
+  background-size: 180px;
+  background-repeat: repeat;
+  animation: slideInLeft 0.8s ease-out;
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.mission-text:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.mission-text::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at center, rgba(164, 232, 111, 0.2), transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.mission-text h2 {
+  font-size: 2.4rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-text p {
+  font-size: 1.05rem;
+  color: #3b3b3b;
+  line-height: 1.75;
+  position: relative;
+  z-index: 2;
+}
+
+/* 📷 Image à droite */
+.mission-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  animation: slideInRight 0.9s ease-out;
+}
+
+.mission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.mission-image:hover img {
+  transform: scale(1.03);
+}
+
+/* ✨ Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
   }
-  
-  .qsn-mission h2 {
-    font-size: 2.4rem;
-    color: #2e7d32;
-    margin-bottom: 40px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .qsn-mission-content {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.05rem;
-    color: #444;
-    line-height: 1.8;
-    background: #ffffff;
-    padding: 40px;
-    border-left: 5px solid #A4E86F;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .qsn-mission-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .mission-text,
+  .mission-image {
+    max-width: 100%;
+  }
+
+  .mission-text h2 {
+    font-size: 2rem;
+  }
+}

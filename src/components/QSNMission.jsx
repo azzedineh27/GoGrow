@@ -1,26 +1,27 @@
-// QSNMission.jsx
 import React from 'react';
 import "../styles/QSNMission.css";
 
 const QSNMission = () => {
   return (
     <section className="qsn-mission">
-      <h2>Notre mission</h2>
-      <p>
-        Reconnecter les espaces de travail à la nature. 🌿 Chez Idrymen, nous croyons que le végétal est plus qu’un décor : c’est un moteur de bien-être, d’inspiration et de productivité.
-      </p>
-      <div className="mission-pillars">
-        <div className="pillar">
-          <h3>🌿 Nature</h3>
-          <p>Intégrer le vivant dans vos espaces avec esthétique et équilibre.</p>
+      <div className="qsn-mission-wrapper">
+        {/* Texte à gauche */}
+        <div className="mission-text">
+          <h2>Notre mission</h2>
+          <p>
+            Chez <strong>Idrymen</strong>, nous croyons que les plantes ne sont pas un simple décor, mais un véritable levier de transformation des espaces de travail.
+          </p>
+          <p>
+            🌱 Nous nous engageons à réintroduire la nature dans vos environnements professionnels, avec sens, élégance et responsabilité.
+          </p>
+          <p>
+            Notre mission : créer des lieux qui respirent, inspirent et régénèrent, au service de votre bien-être et de celui de la planète.
+          </p>
         </div>
-        <div className="pillar">
-          <h3>💼 Bien-être au travail</h3>
-          <p>Offrir un environnement plus apaisant, stimulant et sain.</p>
-        </div>
-        <div className="pillar">
-          <h3>♻️ Engagement durable</h3>
-          <p>Des choix responsables et durables, du design à l’entretien.</p>
+
+        {/* Image à droite */}
+        <div className="mission-image">
+          <img src="/appel_devis.jpg" alt="Végétalisation Idrymen" />
         </div>
       </div>
     </section>
