@@ -73,7 +73,7 @@
 .leaf-overlay {
   position: absolute;
   inset: 0;
-  background-image: url('/feuille.png');
+  background-image: url('/feuille1.png');
   background-repeat: repeat;
   background-size: 60px;
   opacity: 0.04;

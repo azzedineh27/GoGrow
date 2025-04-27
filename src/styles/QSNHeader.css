@@ -1,4 +1,3 @@
-/* QSNHeader.css - Fond fluide SVG avec animation verte organique */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 .qsn-header {
@@ -10,68 +9,125 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   padding: 0 20px;
-  color: #1b1b1b;
-  background: linear-gradient(135deg, #eafbf0, #f0fff9);
+  color: #f0fdf4;
+  background: linear-gradient(135deg, #042f1a, #021a0f);
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
 }
 
-.qsn-header svg {
+/* Fond qui shift doucement */
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌿 Halos animés */
+.halo {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(164, 232, 111, 0.3) 0%, transparent 60%);
+  pointer-events: none;
   z-index: 0;
+  animation: moveHalo 16s ease-in-out infinite alternate;
 }
 
+.halo1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+}
+
+.halo2 {
+  width: 450px;
+  height: 450px;
+  bottom: 15%;
+  right: 12%;
+  animation-delay: 5s;
+}
+
+.halo3 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  right: 20%;
+  animation-delay: 8s;
+}
+
+@keyframes moveHalo {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(30px, 30px) scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+/* Texte du header */
 .qsn-header-content {
+  position: relative;
   z-index: 2;
   max-width: 800px;
+  animation: fadeIn 1.2s ease forwards;
 }
 
 .qsn-header-content h1 {
-  font-size: 3rem;
-  color: #2e7d32;
+  font-size: 3.2rem;
+  font-weight: 700;
   margin-bottom: 20px;
-  animation: fadeInDown 0.8s ease forwards;
+  color: #a4e86f;
+  letter-spacing: 1px;
+  animation: slideInTop 1s ease forwards;
 }
 
 .qsn-header-content p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
-  animation: fadeInUp 1s ease forwards;
+  color: #d4f5df;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease forwards;
 }
 
-.qsn-header-content a {
+/* Bouton */
+.discover-btn {
   background-color: #a4e86f;
-  color: #fff;
-  padding: 12px 28px;
+  color: #1b1b1b;
+  padding: 14px 30px;
   border-radius: 30px;
-  text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: background 0.3s ease, transform 0.3s ease;
-  animation: fadeInUp 1.3s ease forwards;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-.qsn-header-content a:hover {
-  background-color: #8cd55e;
+.discover-btn:hover {
+  background-color: #8bd65c;
   transform: translateY(-3px);
 }
 
+/* Flèche animée */
 .scroll-down-indicator {
   position: absolute;
   bottom: 30px;
-  animation: bounce 2s infinite;
-  color: #4CAF50;
+  animation: bounceDown 2s infinite;
+  color: #a4e86f;
   z-index: 2;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.chevron-icon {
+  stroke-width: 2.5;
+}
+
+/* Animations générales */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
@@ -79,7 +135,22 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes bounce {
+@keyframes slideInTop {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceDown {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .qsn-header-content h1 {
+    font-size: 2.5rem;
+  }
+  .qsn-header-content p {
+    font-size: 1rem;
+  }
 }

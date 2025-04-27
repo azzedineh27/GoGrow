@@ -5,7 +5,7 @@ import '../styles/ServicesHeader.css';
 const ServicesHeader = () => {
   return (
     <header className="services-header">
-      <div className="leaf-overlay" /> {/* arrière-plan feuilles animées */}
+      <div className="leaf-overlay" />
 
       <div className="services-header-content">
         <h1>Services végétalisés sur-mesure</h1>
