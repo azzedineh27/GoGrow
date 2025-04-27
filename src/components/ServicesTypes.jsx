@@ -1,11 +1,11 @@
-// ServicesTypes.jsx
 import React from 'react';
+import { Building2, Landmark, Store, Presentation } from 'lucide-react';
+import '../styles/ServicesTypes.css';
 
 const interventions = [
-  { label: "Bureaux & open spaces", image: "/types/bureaux.jpg" },
-  { label: "Espaces d’accueil", image: "/types/accueil.jpg" },
-  { label: "Commerces & restaurants", image: "/types/commerces.jpg" },
-  { label: "Salles de réunion", image: "/types/reunion.jpg" },
+  { label: "Bureaux & open spaces", image: "/types/bureaux.jpg", icon: <Building2 size={32} color="#A4E86F" /> },
+  { label: "Espaces d’accueil", image: "/types/accueil.jpg", icon: <Landmark size={32} color="#A4E86F" /> },
+  { label: "Commerces & restaurants", image: "/types/commerces.jpg", icon: <Store size={32} color="#A4E86F" /> },
 ];
 
 const ServicesTypes = () => {
@@ -19,7 +19,10 @@ const ServicesTypes = () => {
               className="type-image"
               style={{ backgroundImage: `url(${item.image})` }}
             ></div>
-            <div className="type-label">{item.label}</div>
+            <div className="type-label">
+              {item.icon}
+              <div>{item.label}</div>
+            </div>
           </div>
         ))}
       </div>

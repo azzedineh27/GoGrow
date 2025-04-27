@@ -27,21 +27,24 @@ const steps = [
 const ServicesProcessus = () => {
   return (
     <section className="services-processus">
-      <h2>Notre processus</h2>
-      <div className="processus-steps">
-        {steps.map((step, index) => (
-          <div key={index} className="processus-step" data-step={index + 1}>
-            <div className="process-img-wrapper">
-              <img src={step.img} alt={step.title} />
-            </div>
-            <div className="process-content">
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-            </div>
+  <h2>Notre processus</h2>
+  <div className="processus-steps">
+    {steps.map((step, index) => (
+      <div key={index} className="processus-card">
+        <div className="step-badge">{index + 1}</div> {/* Bulle numéro */}
+        <div className="processus-step">
+          <div className="process-img-wrapper">
+            <img src={step.img} alt={step.title} />
           </div>
-        ))}
+          <div className="process-content">
+            <h3>{step.title}</h3>
+            <p>{step.desc}</p>
+          </div>
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
   );
 };
 
