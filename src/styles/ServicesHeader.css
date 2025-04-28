@@ -3,70 +3,81 @@
 .services-header {
   position: relative;
   height: 100vh;
-  background: linear-gradient(to right, #064e3b, #0b3d2a);
+  background: linear-gradient(135deg, #064e3b, #0b3d2a);
   color: #f0fdf4;
   font-family: 'DM Sans', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
-  overflow: hidden;
   padding: 0 20px;
+  overflow: hidden;
 }
 
 .services-header-content {
   z-index: 2;
-  max-width: 800px;
-  animation: fadeInDown 1s ease-out forwards;
+  max-width: 850px;
+  padding: 0 15px;
+  animation: fadeInDown 1.2s ease forwards;
 }
 
 .services-header h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 20px;
   color: #A4E86F;
+  font-weight: 700;
+  animation: slideInTop 1.4s ease forwards;
 }
 
 .services-header .intro {
-  font-size: 1.2rem;
-  color: #e0f7e8;
+  font-size: 1.25rem;
+  color: #d6fbe0;
   margin-bottom: 30px;
   line-height: 1.6;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
 .highlights {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 50px;
+  gap: 16px;
+  margin: 30px 0 50px;
+  align-items: center;
+  animation: fadeInUp 2s ease forwards;
 }
 
 .highlight-item {
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 20px;
   font-weight: 500;
   border-left: 5px solid #A4E86F;
-  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .highlight-item:hover {
-  transform: translateX(5px);
+  transform: translateX(8px);
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
+/* Flèche scroll */
 .scroll-down {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 0.95rem;
   color: #c5f5d0;
-  animation: bounceDown 2.4s infinite;
+  animation: bounceDown 2.5s infinite;
 }
 
 .scroll-icon {
-  margin-top: 6px;
-  stroke-width: 2;
-  width: 28px;
-  height: 28px;
+  margin-top: 8px;
+  stroke-width: 2.5;
+  width: 30px;
+  height: 30px;
 }
 
 /* Subtle leaf background */
@@ -76,53 +87,56 @@
   background-image: url('/feuille1.png');
   background-repeat: repeat;
   background-size: 60px;
-  opacity: 0.04;
-  animation: driftLeaves 60s linear infinite;
+  opacity: 0.035;
+  animation: driftLeaves 50s linear infinite;
   z-index: 0;
   pointer-events: none;
 }
 
 /* Animations */
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInTop {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes bounceDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 @keyframes driftLeaves {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 300px 200px;
-  }
+  0% { background-position: 0 0; }
+  100% { background-position: 300px 200px; }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .services-header h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .services-header .intro {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .highlight-item {
     font-size: 0.95rem;
+    padding: 10px 20px;
+    max-width: 300px;
+  }
+
+  .scroll-icon {
+    width: 26px;
+    height: 26px;
   }
 }

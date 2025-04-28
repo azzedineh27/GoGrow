@@ -19,13 +19,13 @@
 }
 
 .contact-header h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: #2e7d32;
   margin-bottom: 10px;
 }
 
 .contact-header p {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #4f4f4f;
 }
 
@@ -67,7 +67,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: #a4e86f;
-  box-shadow: 0 0 0 3px rgba(164, 232, 111, 0.2);
+  box-shadow: 0 0 8px rgba(164, 232, 111, 0.3);
 }
 
 textarea {
@@ -85,21 +85,22 @@ textarea {
   color: #1B1B1B;
   cursor: pointer;
   align-self: flex-start;
-  transition: background 0.4s ease, transform 0.3s ease;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
   background: linear-gradient(135deg, #b5f390, #c8fcb2);
+  box-shadow: 0 10px 20px rgba(164, 232, 111, 0.3);
 }
 
-/* ✅ Animation entrée */
+/* ✅ Animation d'entrée */
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ✅ Feuilles animées en PNG */
+/* ✅ Feuilles animées */
 .wind-leaves {
   position: absolute;
   inset: 0;
@@ -111,26 +112,77 @@ textarea {
   position: absolute;
   width: 50px;
   height: 50px;
-  background-image: url('/feuille.png'); /* Assure-toi que feuille.png est dans /public */
+  background-image: url('/feuille.png');
   background-size: contain;
   background-repeat: no-repeat;
-  animation: leafFloat 25s linear infinite;
   opacity: 0.25;
+  animation: leafFloat 25s linear infinite, leafDrift 10s ease-in-out infinite alternate;
 }
 
-.leaf-1 { top: 10%; animation-delay: 0s; left: -80px; }
-.leaf-2 { top: 30%; animation-delay: 5s; left: -100px; }
-.leaf-3 { top: 50%; animation-delay: 10s; left: -120px; }
-.leaf-4 { top: 70%; animation-delay: 15s; left: -140px; }
+.leaf-1 { top: 8%; animation-delay: 0s; left: -80px; }
+.leaf-2 { top: 28%; animation-delay: 5s; left: -100px; }
+.leaf-3 { top: 48%; animation-delay: 10s; left: -120px; }
+.leaf-4 { top: 68%; animation-delay: 15s; left: -140px; }
 
 @keyframes leafFloat {
-  0% {
-    transform: translateX(0) rotate(0deg) scale(1);
+  0% { transform: translateX(0) rotate(0deg) scale(1); }
+  50% { transform: translateX(60vw) rotate(20deg) scale(1.05); }
+  100% { transform: translateX(120vw) rotate(-15deg) scale(0.95); }
+}
+
+/* ✨ Petit flottement vertical pour réalisme */
+@keyframes leafDrift {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
   }
-  50% {
-    transform: translateX(60vw) rotate(15deg) scale(1.05);
+
+  .contact-header p {
+    font-size: 0.95rem;
+    padding: 0 10px;
   }
-  100% {
-    transform: translateX(120vw) rotate(-10deg) scale(0.95);
+
+  .contact-form {
+    width: 100%;
+    max-width: 90%;
+    padding: 24px 18px;
+    margin: 0 auto;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-header p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form {
+    padding: 20px 16px;
+  }
+
+  .submit-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 }

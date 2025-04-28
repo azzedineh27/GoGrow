@@ -8,7 +8,7 @@ body {
 }
 
 .hero-section {
-  height: 100dvh;
+  min-height: 100vh; /* <-- au lieu de height seule */
   width: 100%;
   background-image: url('/fond_header2.jpg');
   background-size: cover;
@@ -18,36 +18,35 @@ body {
   font-family: 'DM Sans', sans-serif;
   text-align: center;
   color: white;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0 1.5rem;
   box-sizing: border-box;
   overflow: hidden;
+  animation: zoomBackground 20s ease-in-out infinite alternate;
 }
 
 .hero-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.3)); /* plus doux */
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.45));
   z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 900px;
   padding: 2rem 1rem;
-  opacity: 1;
-  animation: fadeInUp 1s ease forwards;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  animation: fadeInUp 1.2s ease forwards;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 3.2rem;
+  font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.3;
 }
@@ -68,24 +67,26 @@ body {
 .hero-button {
   background: #A4E86F;
   color: #1B1B1B;
-  padding: 0.9rem 2rem;
+  padding: 1rem 2.2rem;
   font-weight: bold;
   font-size: 1rem;
-  text-decoration: none;
   border-radius: 30px;
+  text-decoration: none;
   box-shadow: 0 10px 20px rgba(164, 232, 111, 0.3);
   transition: all 0.3s ease-in-out;
+  animation: pulse 2.5s infinite;
 }
 
 .hero-button:hover {
   background: #bff18c;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(164, 232, 111, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(164, 232, 111, 0.4);
 }
 
+/* Animations */
 @keyframes fadeInUp {
   from {
-    transform: translateY(30px);
+    transform: translateY(40px);
     opacity: 0;
   }
   to {
@@ -94,9 +95,38 @@ body {
   }
 }
 
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 105%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(164, 232, 111, 0.5);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(164, 232, 111, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(164, 232, 111, 0.5);
+  }
+}
+
+/* ✅ Responsive */
 @media (max-width: 768px) {
+  .hero-section {
+    animation: none; /* Désactive zoom sur mobile */
+  }
+
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-subtitle {
@@ -105,6 +135,6 @@ body {
 
   .hero-button {
     font-size: 0.95rem;
-    padding: 0.8rem 1.5rem;
+    padding: 0.9rem 1.6rem;
   }
 }

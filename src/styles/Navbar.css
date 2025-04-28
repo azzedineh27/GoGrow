@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 30px;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   z-index: 999;
@@ -17,13 +17,15 @@
 }
 
 .navbar-logo {
-  height: 40px;
+  height: 42px;
 }
 
-/* Liens */
+/* Menu liens */
 .navbar-center {
   display: flex;
-  gap: 35px;
+  gap: 30px;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .nav-link {
@@ -32,36 +34,31 @@
   font-size: 0.95rem;
   text-transform: uppercase;
   font-weight: 500;
-  letter-spacing: 0.5px;
   position: relative;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   transition: color 0.3s ease;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
+  width: 0%;
   height: 2px;
-  width: 0;
-  background-color: #4CAF50;
-  left: 0;
+  background: #4CAF50;
   bottom: 0;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #388e3c;
+  left: 0;
+  transition: width 0.3s;
 }
 
 .nav-link:hover::after {
   width: 100%;
 }
 
-.navbar-right {
-  display: flex;
-  align-items: center;
+.nav-link:hover {
+  color: #388e3c;
 }
 
+/* Langues */
 .lang-menu {
   position: relative;
 }
@@ -73,38 +70,43 @@
   font-size: 0.9rem;
   padding: 6px 14px;
   border-radius: 20px;
-  cursor: pointer;
   display: flex;
   align-items: center;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .lang-button:hover {
   background-color: #4CAF50;
-  color: #ffffff;
+  color: white;
 }
 
-/* Dropdown */
+/* Dropdown langues */
 .lang-dropdown {
   position: absolute;
   top: 45px;
   right: 0;
   background: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 12px;
+  border-radius: 10px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   overflow: hidden;
-  display: flex;
+  display: none;
   flex-direction: column;
-  animation: fadeIn 0.3s ease;
-  z-index: 10;
+  min-width: 140px;
+  z-index: 100;
+}
+
+.lang-dropdown.active {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
 }
 
 .lang-dropdown div {
   padding: 10px 16px;
+  font-size: 0.95rem;
   cursor: pointer;
   color: #2e7d32;
-  font-size: 0.95rem;
   transition: background 0.3s;
 }
 
@@ -112,57 +114,49 @@
   background-color: #f0fdf5;
 }
 
-/* ---------- MENU BURGER ---------- */
+/* Burger */
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   color: #4CAF50;
-  background: none;
-  border: none;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* ✅ RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding: 10px 20px;
   }
 
-  .navbar-left {
-    order: 1;
-    flex: 1;
-  }
-
-  .hamburger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    order: 2;
-    flex: 1;
-  }
-
-  .navbar-right {
-    order: 3;
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0;
-  }
-
   .navbar-center {
-    display: none;
-    flex-direction: column;
-    gap: 20px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
     background: #ffffff;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
+    flex-direction: column;
+    gap: 25px;
+    padding: 30px 0;
     border-top: 1px solid #eee;
+    transform: translateY(-200%);
+    transition: transform 0.4s ease;
   }
 
   .navbar-center.active {
-    display: flex;
+    transform: translateY(0%);
   }
+
+  .hamburger {
+    display: block;
+  }
+
+  .lang-menu {
+    margin-left: 10px;
+  }
+}
+
+/* Animation fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

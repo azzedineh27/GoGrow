@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
 .services-processus {
   padding: 100px 20px;
   background: linear-gradient(135deg, #f1fff5, #e6f9eb);
@@ -11,9 +13,22 @@
   font-size: 2.6rem;
   color: #2e7d32;
   margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease forwards;
 }
 
-/* Nouveau wrapper autour de chaque étape */
+/* ✅ Animation titre */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wrapper de chaque étape */
 .processus-card {
   position: relative;
   display: flex;
@@ -26,21 +41,21 @@
   background: #A4E86F;
   color: #ffffff;
   font-weight: bold;
-  width: 50px;
-  height: 50px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   position: absolute;
-  top: -25px;
+  top: -26px;
   z-index: 5;
   border: 3px solid #ffffff;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
 }
 
-/* Cartes */
+/* Cartes étapes */
 .processus-steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -54,24 +69,25 @@
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  padding: 40px 20px 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 50px 24px 30px; /* petit ajustement du padding */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   width: 100%;
-  margin-top: 25px; /* espace pour la bulle */
+  margin-top: 30px; /* espace pour la bulle */
 }
 
 .processus-step:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(164, 232, 111, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(164, 232, 111, 0.25);
 }
 
-/* Image */
+/* Image étapes */
 .process-img-wrapper {
   width: 100%;
   height: 160px;
   overflow: hidden;
   border-radius: 14px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .process-img-wrapper img {
@@ -85,7 +101,7 @@
   transform: scale(1.05);
 }
 
-/* Textes */
+/* Contenu textes */
 .process-content h3 {
   font-size: 1.2rem;
   color: #2e7d32;
@@ -103,11 +119,20 @@
 @media (max-width: 992px) {
   .processus-steps {
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
   }
 }
 
 @media (max-width: 600px) {
   .processus-steps {
     grid-template-columns: 1fr;
+  }
+
+  .services-processus h2 {
+    font-size: 2.2rem;
+  }
+
+  .process-content p {
+    padding: 0;
   }
 }

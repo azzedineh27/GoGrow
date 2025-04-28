@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 .engagements-section {
-  background-color: #f8fdf9; /* fond très clair légèrement vert */
+  background: linear-gradient(135deg, #f0fff5, #e6f9eb);
   padding: 100px 20px;
   font-family: 'DM Sans', sans-serif;
   color: #1b1b1b;
   text-align: center;
+  overflow: hidden;
 }
 
 .engagements-title {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: bold;
   margin-bottom: 60px;
   color: #2e7d32;
+  animation: fadeInDown 0.8s ease-out;
 }
 
 .engagements-grid {
@@ -21,48 +23,77 @@
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .engagement-card {
   background: #ffffff;
-  border-left: 5px solid #A4E86F;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 22px;
+  padding: 40px 30px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #A4E86F;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .engagement-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
 }
 
 .engagement-icon {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   margin-bottom: 20px;
-  color: #A4E86F;
+  color: #88c057;
+  transition: transform 0.4s ease;
+}
+
+.engagement-card:hover .engagement-icon {
+  transform: scale(1.2);
 }
 
 .engagement-card-title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #1b1b1b;
 }
 
 .engagement-card-desc {
   font-size: 1rem;
-  color: #2f2f2f;
-  line-height: 1.6;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Animation subtile */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .engagements-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .engagement-card {
+    padding: 30px 20px;
   }
 
   .engagement-icon {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+  }
+
+  .engagement-card-title {
+    font-size: 1.25rem;
   }
 }

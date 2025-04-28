@@ -5,13 +5,15 @@
   padding: 100px 20px;
   font-family: 'DM Sans', sans-serif;
   text-align: center;
+  overflow: hidden;
 }
 
 .qsn-whyus h2 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
+  font-weight: 700;
   color: #2e7d32;
   margin-bottom: 60px;
-  position: relative;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .whyus-stats {
@@ -20,60 +22,86 @@
   gap: 40px;
   max-width: 1100px;
   margin: 0 auto;
+  padding-top: 10px;
 }
 
+/* Capsule Style */
 .stat-capsule {
-  background: #ffffff;
+  background: radial-gradient(circle at top right, #ffffff, #f2fbf5);
   padding: 30px 20px;
   border-radius: 40px 10px 40px 10px;
-  box-shadow: 0 8px 30px rgba(164, 232, 111, 0.15);
-  border: 2px solid rgba(164, 232, 111, 0.3);
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(164, 232, 111, 0.12);
+  border: 2px solid rgba(164, 232, 111, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  animation: fadeInUp 1s ease forwards;
 }
 
 .stat-capsule:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(164, 232, 111, 0.25);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(164, 232, 111, 0.25);
 }
 
+/* Icon */
 .capsule-icon {
   background: #A4E86F;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 18px;
+  font-size: 1.4rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  animation: pulse 4s infinite ease-in-out;
 }
 
 .capsule-content h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #2e7d32;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .capsule-content p {
   font-size: 0.95rem;
-  color: #444;
-  line-height: 1.4;
-  max-width: 180px;
+  color: #4a4a4a;
+  max-width: 200px;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .stat-capsule {
-    padding: 25px 15px;
+    padding: 24px 18px;
   }
 
   .capsule-content h3 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
 
   .capsule-content p {

@@ -6,6 +6,7 @@
   right: 30px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 14px 28px;
   font-family: 'Outfit', sans-serif;
@@ -13,25 +14,27 @@
   font-size: 1rem;
   color: #1B1B1B;
   text-decoration: none;
-  border-radius: 40px;
+  border-radius: 50px; /* + rond */
   border: 2px solid #a4e86f;
   z-index: 999;
   background: linear-gradient(135deg, #a4e86f, #b9fcb3);
   background-size: 400% 400%;
-  animation: gradientShift 10s ease-in-out infinite, pulseBorder 4s ease-in-out infinite;
-  box-shadow: 0 0 0 rgba(164, 232, 111, 0.4);
-  transition: transform 0.3s ease;
+  animation: gradientShift 12s ease-in-out infinite, pulseBorder 4s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(164, 232, 111, 0.3);
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .cta-gradient:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px) scale(1.06); /* monte + zoom */
+  background: linear-gradient(135deg, #b9fcb3, #a4e86f); /* inversion couleurs */
+  box-shadow: 0 12px 24px rgba(164, 232, 111, 0.5);
 }
 
 .cta-icon {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
-/* 🌿 Animation fluide continue du fond */
+/* 🌿 Animation fluide du dégradé */
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -44,12 +47,26 @@
   }
 }
 
-/* ✨ Pulsation douce du contour (effet halo) */
+/* ✨ Halo pulsant */
 @keyframes pulseBorder {
   0%, 100% {
-    box-shadow: 0 0 0 rgba(164, 232, 111, 0.3);
+    box-shadow: 0 8px 20px rgba(164, 232, 111, 0.3);
   }
   50% {
-    box-shadow: 0 0 12px rgba(164, 232, 111, 0.6);
+    box-shadow: 0 12px 28px rgba(164, 232, 111, 0.5);
+  }
+}
+
+/* Responsive bonus */
+@media (max-width: 600px) {
+  .cta-gradient {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .cta-icon {
+    font-size: 1.4rem;
   }
 }

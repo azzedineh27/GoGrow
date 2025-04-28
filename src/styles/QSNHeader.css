@@ -104,11 +104,13 @@
   font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(164, 232, 111, 0.4);
 }
 
 .discover-btn:hover {
   background-color: #8bd65c;
   transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(164, 232, 111, 0.6);
 }
 
 /* Flèche animée */
@@ -141,9 +143,12 @@
 }
 
 @keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(6px) rotate(5deg); }
+  50% { transform: translateY(10px) rotate(0deg); }
+  75% { transform: translateY(6px) rotate(-5deg); }
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {

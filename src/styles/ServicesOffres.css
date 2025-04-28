@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
 .services-offres {
   background: linear-gradient(to bottom right, #f0fdf5, #ffffff);
   padding: 100px 20px;
   font-family: 'DM Sans', sans-serif;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .services-offres h2 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: #2e7d32;
   margin-bottom: 60px;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .offres-grid {
@@ -29,13 +33,14 @@
   border-radius: 28px;
   padding: 40px 30px;
   border: 1px solid #d0ecd7;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .offre-card::before {
@@ -51,33 +56,10 @@
 }
 
 .offre-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
 }
 
-.offre-card h3 {
-  font-size: 1.5rem;
-  color: #2e7d32;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.offre-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #4f4f4f;
-  position: relative;
-  z-index: 1;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .offre-card {
-    max-width: 100%;
-    min-height: 360px;
-  }
-}
 .offre-icon {
   background: #ecfef0;
   width: 56px;
@@ -88,8 +70,28 @@
   border-radius: 50%;
   margin: 0 auto 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 1.6rem;
+  color: #2e7d32;
 }
 
+.offre-card h3 {
+  font-size: 1.6rem;
+  color: #2e7d32;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.offre-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4f4f4f;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+/* Liste des points */
 .offre-points {
   list-style: none;
   padding: 0;
@@ -104,4 +106,47 @@
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .services-offres h2 {
+    font-size: 2.2rem;
+  }
+
+  .offres-grid {
+    gap: 30px;
+  }
+
+  .offre-card {
+    max-width: 100%;
+    min-height: 380px;
+    padding: 30px 24px;
+  }
+
+  .offre-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  .offre-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .offre-points li {
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Petite animation sur le h2 */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

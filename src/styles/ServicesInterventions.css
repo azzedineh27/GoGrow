@@ -1,4 +1,3 @@
-/* src/styles/ServicesInterventions.css */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 .services-interventions {
@@ -6,18 +5,20 @@
   padding: 100px 20px;
   font-family: 'DM Sans', sans-serif;
   text-align: center;
+  overflow: hidden;
 }
 
 .services-interventions h2 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: #2e7d32;
   margin-bottom: 60px;
-  animation: fadeInDown 0.8s ease-out;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .slider-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   flex-wrap: wrap;
   max-width: 1200px;
@@ -25,38 +26,40 @@
 }
 
 .slider-card {
-  flex: 0 0 240px;
+  flex: 0 0 260px;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  position: relative;
 }
 
 .slider-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(164, 232, 111, 0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 50px rgba(164, 232, 111, 0.2);
 }
 
 .slider-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-size: cover;
   background-position: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .slider-card:hover .slider-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .slider-label {
   background: #f7fcf9;
   border-top: 4px solid #A4E86F;
-  padding: 16px 10px;
+  padding: 18px 12px;
   font-weight: 600;
   font-size: 1rem;
   color: #1B1B1B;
@@ -81,14 +84,24 @@
 /* Responsive */
 @media (max-width: 768px) {
   .services-interventions h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .slider-wrapper {
+    justify-content: center;
+    gap: 20px;
   }
 
   .slider-card {
-    flex: 0 0 200px;
+    flex: 0 0 220px;
+  }
+
+  .slider-image {
+    height: 160px;
   }
 
   .slider-label {
     font-size: 0.95rem;
+    padding: 14px 10px;
   }
 }

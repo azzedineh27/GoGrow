@@ -5,13 +5,16 @@
   background: linear-gradient(to bottom right, #f0fff6, #ffffff);
   font-family: 'DM Sans', sans-serif;
   position: relative;
+  overflow: hidden;
 }
 
 .timeline-title {
   text-align: center;
-  font-size: 2.6rem;
+  font-size: 2.8rem;
+  font-weight: 700;
   color: #2e7d32;
   margin-bottom: 80px;
+  animation: fadeInDown 1s ease forwards;
 }
 
 /* Timeline container */
@@ -31,6 +34,7 @@
   background: linear-gradient(to bottom, #A4E86F, #2e7d32);
   transform: translateX(-50%);
   z-index: 1;
+  opacity: 0.7;
 }
 
 /* Timeline item */
@@ -41,15 +45,20 @@
   box-sizing: border-box;
   z-index: 2;
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
 }
 
 .timeline-item:nth-child(even) {
-  animation-delay: 0.2s;
+  left: 0;
+  text-align: right;
+  animation-delay: 0.3s;
 }
+
 .timeline-item:nth-child(odd) {
-  animation-delay: 0.4s;
+  left: 50%;
+  text-align: left;
+  animation-delay: 0.6s;
 }
 
 @keyframes fadeUp {
@@ -59,80 +68,91 @@
   }
 }
 
-.timeline-item.left {
-  left: 0;
-  text-align: right;
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.timeline-item.right {
-  left: 50%;
-  text-align: left;
-}
-
+/* Card */
 .timeline-card {
   background: #ffffff;
   border-radius: 16px;
-  padding: 20px 24px;
+  padding: 22px 26px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   position: relative;
-  transition: transform 0.3s;
+  transition: all 0.4s ease;
+  display: inline-block;
+  min-width: 260px;
 }
 
 .timeline-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(164, 232, 111, 0.2);
 }
 
 .timeline-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #2e7d32;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .timeline-card p {
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 0.98rem;
+  color: #3a3a3a;
   line-height: 1.6;
 }
 
-/* Decorative leaf icon */
+/* Leaf Icon (pastille déco) */
 .leaf-icon {
   position: absolute;
-  top: 20px;
+  top: 24px;
+  width: 40px;
+  height: 40px;
   background: #d6f5dc;
   color: #2e7d32;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
   z-index: 3;
 }
 
 .left .leaf-icon {
-  right: -25px;
+  right: -20px;
 }
 
 .right .leaf-icon {
-  left: -25px;
+  left: -20px;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .timeline-item {
-    width: 100%;
-    left: 0 !important;
-    text-align: left;
-    margin-bottom: 40px;
+  .timeline-container {
+    padding: 0 10px;
   }
 
   .timeline-line {
     left: 20px;
   }
 
-  .leaf-icon {
+  .timeline-item {
+    width: 100%;
     left: 0 !important;
-    right: auto !important;
+    text-align: left;
+    margin-bottom: 50px;
+    padding-left: 50px;
   }
 
   .timeline-card {
-    margin-left: 40px;
+    margin-left: 30px;
+    min-width: auto;
+  }
+
+  .leaf-icon {
+    left: 0 !important;
+    right: auto;
+    top: 20px;
   }
 }
