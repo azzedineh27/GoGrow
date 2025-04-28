@@ -17,6 +17,11 @@ const faqData = [
     answer:
       'Pour l’instant, nous intervenons principalement en Île-de-France, mais contactez-nous pour vérifier !',
   },
+  {
+    question: 'Intervenez-vous partout en France ?',
+    answer:
+      'Pour l’instant, nous intervenons principalement en Île-de-France, mais contactez-nous pour vérifier !',
+  }
 ];
 
 const AccueilFAQ = () => {

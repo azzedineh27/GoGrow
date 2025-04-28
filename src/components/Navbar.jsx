@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 import '../styles/navbar.css';
-import { Menu } from 'lucide-react'; // ou une autre icône
+import { Menu, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [currentLang, setCurrentLang] = useState('FR');
 
   const toggleMenu = () => {
     setIsOpen(prev => !prev);
+  };
+
+  const toggleLangMenu = () => {
+    setIsLangOpen(prev => !prev);
+  };
+
+  const selectLang = (lang) => {
+    setCurrentLang(lang);
+    setIsLangOpen(false);
+    // ici tu peux rajouter de la logique pour changer la langue du site si besoin
   };
 
   return (
@@ -28,7 +40,18 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
-        <button className="lang-button">FR ▾</button>
+        <div className="lang-menu">
+          <button className="lang-button" onClick={toggleLangMenu}>
+            {currentLang} <ChevronDown size={18} style={{ marginLeft: 6 }} />
+          </button>
+          {isLangOpen && (
+            <div className="lang-dropdown">
+              <div onClick={() => selectLang('FR')}>Français</div>
+              <div onClick={() => selectLang('EN')}>English</div>
+              <div onClick={() => selectLang('ES')}>Español</div>
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );

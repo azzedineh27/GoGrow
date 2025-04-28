@@ -62,21 +62,54 @@
   align-items: center;
 }
 
-/* Bouton langue */
+.lang-menu {
+  position: relative;
+}
+
 .lang-button {
   background: transparent;
   border: 1px solid #4CAF50;
   color: #4CAF50;
   font-size: 0.9rem;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
 .lang-button:hover {
   background-color: #4CAF50;
-  color: white;
+  color: #ffffff;
+}
+
+/* Dropdown */
+.lang-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+  z-index: 10;
+}
+
+.lang-dropdown div {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: #2e7d32;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
+
+.lang-dropdown div:hover {
+  background-color: #f0fdf5;
 }
 
 /* ---------- MENU BURGER ---------- */
