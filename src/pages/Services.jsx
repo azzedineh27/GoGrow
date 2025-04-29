@@ -17,9 +17,9 @@ const Services = () => {
     <main>
       <ServicesHeader />
       <ServicesOffres />
+      <PlantesCarousel/>
       <ServicesProcessus />
       <ServicesInterventions />
-      <PlantesCarousel/>
     </main>
   );
 };
