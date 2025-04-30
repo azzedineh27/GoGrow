@@ -8,7 +8,7 @@ const AccueilQSN = () => {
         <div className="qsn-textbox">
           <h2 className="qsn-title">Notre vision 🌿</h2>
           <p className="qsn-desc">
-            Chez <strong>IDRYMEN</strong>, nous façonnons des espaces de travail
+            Chez <strong>GoGrow</strong>, nous façonnons des espaces de travail
             où la nature s’intègre parfaitement à l’architecture.
             La végétalisation est pour nous une réponse à la recherche de bien-être,
             de respiration et d’harmonie dans les lieux professionnels.

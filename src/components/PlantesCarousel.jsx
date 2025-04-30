@@ -21,13 +21,15 @@ const PlantesCarousel = () => {
       <p className="carousel-subtitle">
         Une sélection de nos espèces les plus prisées pour transformer vos espaces de travail en oasis de verdure 🌿
       </p>
-      <div className="carousel-wrapper" style={{ '--quantity': images.length }}>
-        {images.map((item, index) => (
-          <div key={index} className="carousel-item" style={{ '--position': index + 1 }}>
-            <img src={item.src} alt={item.label} />
-            <div className="plante-caption">{item.label}</div>
-          </div>
-        ))}
+      <div className="carousel-viewport">
+        <div className="carousel-wrapper" style={{ '--quantity': images.length }}>
+          {images.map((item, index) => (
+            <div key={index} className="carousel-item" style={{ '--position': index + 1 }}>
+              <img src={item.src} alt={item.label} />
+              <div className="plante-caption">{item.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

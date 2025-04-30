@@ -5,7 +5,7 @@ const avisList = [
   {
     name: 'Sophie B.',
     note: 5,
-    comment: 'L’équipe Idrymen a transformé nos bureaux ! C’est apaisant et super bien intégré.'
+    comment: 'L’équipe GoGrow a transformé nos bureaux ! C’est apaisant et super bien intégré.'
   },
   {
     name: 'Thomas L.',

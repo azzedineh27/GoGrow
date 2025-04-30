@@ -10,6 +10,14 @@ const QSNHeader = () => {
       <div className="halo halo2" />
       <div className="halo halo3" />
 
+      <div className="particles">
+        <span className="particle"></span>
+        <span className="particle"></span>
+        <span className="particle"></span>
+        <span className="particle"></span>
+      </div>
+
+
       {/* Contenu */}
       <div className="qsn-header-content">
         <h1>Qui sommes-nous ?</h1>

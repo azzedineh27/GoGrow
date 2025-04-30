@@ -7,7 +7,7 @@ const timeline = [
     icon: <Sprout size={24} />,
     year: '2023',
     title: 'Naissance',
-    desc: 'Création d’Idrymen, portée par une passion pour la nature.',
+    desc: 'Création de GoGrow, portée par une passion pour la nature.',
   },
   {
     icon: <TreePalm size={24} />,

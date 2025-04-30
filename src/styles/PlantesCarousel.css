@@ -6,21 +6,22 @@
   font-family: 'DM Sans', sans-serif;
   overflow: hidden;
   position: relative;
-  padding: 30px 20px 80px;
+  padding: 30px 20px 180px;
   text-align: center;
-  gap: 40px; /* ajoute un écart naturel entre éléments */
+  gap: 20px;
 }
 
 .carousel-title {
   font-size: 2.2rem;
   color: #2e7d32;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 
 .carousel-subtitle {
   font-size: 1rem;
   color: #4f4f4f;
   max-width: 600px;
+  margin-bottom : 50px;
 }
 
 .carousel-wrapper {
@@ -96,20 +97,50 @@
   }
 }
 
-/* 📈 Encore plus petit */
 @media (max-width: 480px) {
+  .plantes-carousel {
+    padding: 30px 15px 240px; /* ✅ plus de place en bas */
+  }
+
   .carousel-wrapper {
-    width: 120px;
-    height: 160px;
-    transform: scale(0.85);
+    width: 100px;         /* ✅ plus étroit */
+    height: 140px;        /* ✅ moins haut */
+    transform: scale(0.65); /* ✅ plus petit */
+  }
+
+  .carousel-item {
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(160px); /* ✅ moins de profondeur */
   }
 
   .carousel-title {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .carousel-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .plante-caption {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-wrapper {
+    width: 120px;
+    height: 160px;
+    transform: scale(0.8);
+  }
+
+  .carousel-item {
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(280px);
+  }
+
+  .plante-caption {
+    font-size: 0.8rem;
+  }
+  .plantes-carousel{
+    padding: 30px 20px 180px;
   }
 }
 

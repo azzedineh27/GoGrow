@@ -9,7 +9,7 @@ const QSNMission = () => {
         <div className="mission-text">
           <h2>Notre mission</h2>
           <p>
-            Chez <strong>Idrymen</strong>, nous croyons que les plantes ne sont pas un simple décor, mais un véritable levier de transformation des espaces de travail.
+            Chez <strong>GoGrow</strong>, nous croyons que les plantes ne sont pas un simple décor, mais un véritable levier de transformation des espaces de travail.
           </p>
           <p>
             🌱 Nous nous engageons à réintroduire la nature dans vos environnements professionnels, avec sens, élégance et responsabilité.
@@ -21,7 +21,7 @@ const QSNMission = () => {
 
         {/* Image à droite */}
         <div className="mission-image">
-          <img src="/appel_devis.jpg" alt="Végétalisation Idrymen" />
+          <img src="/appel_devis.jpg" alt="Végétalisation GoGrow" />
         </div>
       </div>
     </section>

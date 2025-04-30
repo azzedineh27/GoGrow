@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img src="/logo_idrymen.webp" alt="Logo Idrymen" className="navbar-logo" />
+        <img src="/logo_ggg.png" alt="Logo GoGrow" className="navbar-logo" />
       </div>
 
       <div className="hamburger" onClick={toggleMenu}>
@@ -45,11 +45,11 @@ const Navbar = () => {
             {currentLang} <ChevronDown size={18} style={{ marginLeft: 6 }} />
           </button>
           {isLangOpen && (
-            <div className="lang-dropdown">
+            <div className={`lang-dropdown ${isLangOpen ? 'active' : ''}`}>
               <div onClick={() => selectLang('FR')}>Français</div>
               <div onClick={() => selectLang('EN')}>English</div>
               <div onClick={() => selectLang('ES')}>Español</div>
-            </div>
+            </div>          
           )}
         </div>
       </div>
