@@ -112,29 +112,38 @@ textarea {
   position: absolute;
   width: 50px;
   height: 50px;
-  background-image: url('/feuille.png');
+  background-image: url('/feuille1.png');
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.25;
-  animation: leafFloat 25s linear infinite, leafDrift 10s ease-in-out infinite alternate;
+  animation: leafCombined 25s linear infinite;
 }
 
-.leaf-1 { top: 8%; animation-delay: 0s; left: -80px; }
+.leaf-1 { top: 10%; animation-delay: 0s; left: -80px; }
 .leaf-2 { top: 28%; animation-delay: 5s; left: -100px; }
 .leaf-3 { top: 48%; animation-delay: 10s; left: -120px; }
 .leaf-4 { top: 68%; animation-delay: 15s; left: -140px; }
+.leaf-5 { top: 88%; animation-delay: 20s; left: -160px; }
 
-@keyframes leafFloat {
-  0% { transform: translateX(0) rotate(0deg) scale(1); }
-  50% { transform: translateX(60vw) rotate(20deg) scale(1.05); }
-  100% { transform: translateX(120vw) rotate(-15deg) scale(0.95); }
+
+@keyframes leafCombined {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(30vw, 5px) rotate(10deg) scale(1.05);
+  }
+  50% {
+    transform: translate(60vw, -5px) rotate(20deg) scale(1.1);
+  }
+  75% {
+    transform: translate(90vw, 5px) rotate(10deg) scale(1.05);
+  }
+  100% {
+    transform: translate(120vw, 0) rotate(-15deg) scale(0.95);
+  }
 }
 
-/* ✨ Petit flottement vertical pour réalisme */
-@keyframes leafDrift {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(10px); }
-}
 
 @media (max-width: 768px) {
   .contact-page {

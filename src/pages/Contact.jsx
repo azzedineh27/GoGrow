@@ -5,12 +5,12 @@ import FormulaireContact from '../components/FormulaireContact';
 const ContactPage = () => {
   return (
     <div className="contact-page">
-      {/* Fond animé avec feuilles en PNG */}
       <div className="wind-leaves">
         <span className="leaf leaf-1" />
         <span className="leaf leaf-2" />
         <span className="leaf leaf-3" />
         <span className="leaf leaf-4" />
+        <span className="leaf leaf-5" />
         <span className="leaf leaf-5" />
       </div>
 

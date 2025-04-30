@@ -12,7 +12,7 @@ const DevisForm = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const plantesOptions = [
     { name: 'Ficus', price: 25 },
@@ -43,7 +43,8 @@ const DevisForm = () => {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -67,9 +68,9 @@ const DevisForm = () => {
 
   return (
     <div className="devis-page">
-      <form className="devis-form">
-        <h2>Obtenez votre devis</h2>
+      <h2 className="devis-title">Obtenez votre devis</h2>
 
+      <form className="devis-form" onSubmit={handleSubmit}>
         <label>Nom</label>
         <input type="text" name="nom" required value={formData.nom} onChange={handleChange} />
 
@@ -102,43 +103,42 @@ const DevisForm = () => {
             </div>
           ))}
         </div>
+
+        <button
+          type="submit"
+          className={`submit-btn ${loading ? 'loading' : ''}`}
+          disabled={loading}
+        >
+          {loading ? "Envoi..." : "Envoyer le devis 🌿"}
+        </button>
+
+        {submitted && !loading && (
+          <p className="confirmation">✅ Devis envoyé avec succès !</p>
+        )}
       </form>
 
       {showSidebar && (
         <>
-          <aside className={`devis-sidebar ${sidebarOpen ? 'active' : ''}`}>
-            <h3>Récapitulatif</h3>
-            <p><strong>Nom :</strong> {formData.nom || '-'}</p>
-            <p><strong>Email :</strong> {formData.email || '-'}</p>
-            <p><strong>Téléphone :</strong> {formData.telephone || '-'}</p>
-            <p><strong>Formule :</strong> {formData.formule || '-'}</p>
-            <p><strong>Plantes :</strong></p>
-            <ul>
-              {Object.entries(formData.plantes).filter(([_, qty]) => qty > 0).length === 0 && (
-                <li>Aucune plante sélectionnée</li>
-              )}
-              {Object.entries(formData.plantes).map(([name, qty]) =>
-                qty > 0 && <li key={name}>{name} × {qty}</li>
-              )}
-            </ul>
+          {sidebarOpen && (
+            <aside className="devis-sidebar active">
+              <h3>Récapitulatif</h3>
+              <p><strong>Nom :</strong> {formData.nom || '-'}</p>
+              <p><strong>Email :</strong> {formData.email || '-'}</p>
+              <p><strong>Téléphone :</strong> {formData.telephone || '-'}</p>
+              <p><strong>Formule :</strong> {formData.formule || '-'}</p>
+              <p><strong>Plantes :</strong></p>
+              <ul>
+                {Object.entries(formData.plantes).filter(([_, qty]) => qty > 0).length === 0 && (
+                  <li>Aucune plante sélectionnée</li>
+                )}
+                {Object.entries(formData.plantes).map(([name, qty]) =>
+                  qty > 0 && <li key={name}>{name} × {qty}</li>
+                )}
+              </ul>
+              <p className="total"><strong>Total estimé :</strong> {total}€</p>
+            </aside>
+          )}
 
-            <p className="total"><strong>Total estimé :</strong> {total}€</p>
-
-            <button
-              type="button"
-              className={`submit-btn ${loading ? 'loading' : ''}`}
-              onClick={handleSubmit}
-              disabled={loading}
-            >
-              {loading ? "Envoi..." : "Envoyer le devis 🌿"}
-            </button>
-
-            {submitted && !loading && (
-              <p className="confirmation">✅ Devis envoyé avec succès !</p>
-            )}
-          </aside>
-
-          {/* ✅ Bouton toggle */}
           <button className="toggle-sidebar-btn" onClick={toggleSidebar}>
             {sidebarOpen ? "Cacher le récap" : "Voir le récap"}
           </button>

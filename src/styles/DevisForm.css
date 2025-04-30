@@ -9,15 +9,24 @@ body {
 
 .devis-page {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   padding: 80px 20px;
   font-family: 'Outfit', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Formulaire */
+.devis-title {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #2e7d32;
+  text-align: center;
+}
+
 .devis-form {
   width: 100%;
   max-width: 450px;
@@ -27,13 +36,6 @@ body {
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   animation: slideInDown 0.8s ease-out forwards;
-}
-
-.devis-form h2 {
-  font-size: 1.7rem;
-  color: #2e7d32;
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 .devis-form label {
@@ -100,7 +102,6 @@ body {
   text-align: center;
 }
 
-/* Bouton principal */
 .submit-btn {
   background: linear-gradient(135deg, #a4e86f, #bff4a4);
   color: #1B1B1B;
@@ -120,7 +121,6 @@ body {
   background: linear-gradient(135deg, #b7f390, #d0ffbb);
 }
 
-/* Confirmation message */
 .confirmation {
   margin-top: 20px;
   color: #2e7d32;
@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-/* Sidebar récapitulatif */
+/* ✅ Sidebar */
 .devis-sidebar {
   position: fixed;
   top: 80px;
@@ -145,6 +145,7 @@ body {
   transform: translateX(100%);
   transition: transform 0.4s ease;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .devis-sidebar.active {
@@ -173,7 +174,6 @@ body {
   color: #1b4726;
 }
 
-/* Bouton toggle afficher/masquer récap */
 .toggle-sidebar-btn {
   position: fixed;
   top: 90px;
@@ -196,26 +196,18 @@ body {
   transform: translateY(-2px);
 }
 
-/* Animations */
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
-}
-
+/* ✅ Responsive */
 @media (max-width: 768px) {
   .devis-page {
     padding: 50px 12px;
+  }
+  .devis-title{
+    margin-top : 80px; 
   }
 
   .devis-form {
     max-width: 95%;
     padding: 16px 12px;
-    margin-top: 30px; /* espace avant le titre */
     border-radius: 16px;
   }
 
@@ -226,7 +218,6 @@ body {
 
   .devis-form label {
     font-size: 0.85rem;
-    margin-bottom: 4px;
   }
 
   .devis-form input,
@@ -234,7 +225,6 @@ body {
     padding: 8px 10px;
     font-size: 0.85rem;
     margin-bottom: 12px;
-    border-radius: 8px;
   }
 
   .plant-select {
@@ -249,10 +239,6 @@ body {
     padding: 10px 12px;
   }
 
-  .plant-item span {
-    font-size: 0.85rem;
-  }
-
   .qty-controls {
     width: 100%;
     justify-content: space-between;
@@ -263,65 +249,52 @@ body {
     font-size: 0.85rem;
   }
 
-  .qty-controls span {
-    font-size: 0.85rem;
-  }
-
   .submit-btn {
     font-size: 0.9rem;
     padding: 10px 16px;
-    margin-top: 16px;
   }
 
-  /* ✅ Sidebar récap mobile */
+  /* ✅ Sidebar mobile */
   .devis-sidebar {
-    position: fixed;
     top: auto;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
-    height: auto;
+    border-radius: 20px 20px 0 0;
     border-left: none;
     border-top: 3px solid #A4E86F;
-    padding: 18px 14px;
     transform: translateY(100%);
-    border-radius: 20px 20px 0 0;
+    padding: 18px 16px 80px 16px;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    max-height: 70vh;
+    overflow-y: auto;
   }
 
   .devis-sidebar.active {
     transform: translateY(0%);
   }
 
-  .devis-sidebar h3 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-  }
-
-  .devis-sidebar p,
-  .devis-sidebar ul li {
-    font-size: 0.85rem;
-  }
-
-  .devis-sidebar .total {
-    font-size: 1rem;
-  }
-
-  .confirmation {
-    font-size: 0.85rem;
-  }
-
-  /* ✅ Bouton toggle */
   .toggle-sidebar-btn {
-    bottom: 95px;
     top: auto;
-    right: 14px;
+    bottom: 100px;
+    right: 16px;
     font-size: 0.85rem;
     padding: 6px 12px;
     border-radius: 16px;
+    z-index: 1101;
   }
 }
 
 @media (max-width: 480px) {
+  .devis-page {
+    padding: 40px 10px;
+  }
+
+  .devis-form {
+    padding: 14px 10px;
+  }
+
   .devis-form h2 {
     font-size: 1.3rem;
   }
@@ -332,10 +305,7 @@ body {
     padding: 7px 10px;
   }
 
-  .plant-item span {
-    font-size: 0.8rem;
-  }
-
+  .plant-item span,
   .qty-controls span {
     font-size: 0.8rem;
   }
@@ -357,6 +327,17 @@ body {
   .toggle-sidebar-btn {
     font-size: 0.8rem;
     padding: 5px 10px;
+    bottom: 90px;
+    right: 10px;
+  }
+
+  .devis-sidebar {
+    padding-bottom: 100px;
   }
 }
 
+/* Animation */
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
