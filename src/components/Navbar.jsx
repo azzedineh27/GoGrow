@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/navbar.css';
+import '../styles/Navbar.css';
 import { Menu, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
